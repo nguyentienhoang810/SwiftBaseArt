@@ -1,6 +1,0 @@
-framework module Pods_SwiftBase_art {
-  umbrella header "Pods-SwiftBase_art-umbrella.h"
-
-  export *
-  module * { export * }
-}
