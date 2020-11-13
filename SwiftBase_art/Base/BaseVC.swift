@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BaseVC.swift
 //  SwiftBase_art
 //
 //  Created by MacBook on 11/13/20.
@@ -7,15 +7,13 @@
 //
 
 import UIKit
+import SnapKit
 
-class ViewController: UIViewController {
-
+class BaseVC: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .blue
-        print("hey yo")
     }
-
-
+    
+    
 }
-
