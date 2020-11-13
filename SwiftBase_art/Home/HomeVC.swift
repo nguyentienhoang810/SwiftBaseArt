@@ -11,23 +11,23 @@ import SnapKit
 
 class HomeVC: UIViewController {
     
-    let homeView = HomeView()
+    let subView = HomeView()
+    var vm: HomeVM!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(homeView)
-        homeView.snp.makeConstraints { (make) in
+        view.addSubview(subView)
+        subView.snp.makeConstraints { (make) in
             make.width.equalToSuperview()
             make.height.equalToSuperview()
         }
         
-        homeView.nextBtn.addTarget(self, action: #selector(gotoList), for: .touchUpInside)
+        subView.nextBtn.addTarget(self, action: #selector(gotoList), for: .touchUpInside)
     }
 
     @objc func gotoList() {
-        let listVC = ListVC()
-        navigationController?.pushViewController(listVC, animated: true)
+        vm.gotoList()
     }
 
 }

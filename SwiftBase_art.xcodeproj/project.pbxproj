@@ -16,9 +16,8 @@
 		FA13FD1F255E8C9200F3D9F1 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD1E255E8C9200F3D9F1 /* BaseVC.swift */; };
 		FA13FD21255E96F300F3D9F1 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD20255E96F300F3D9F1 /* HomeVM.swift */; };
 		FA13FD23255E96FF00F3D9F1 /* ListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD22255E96FF00F3D9F1 /* ListVM.swift */; };
-		FA13FD25255E970800F3D9F1 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD24255E970800F3D9F1 /* HomeCoordinator.swift */; };
 		FA13FD27255E971200F3D9F1 /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD26255E971200F3D9F1 /* ListCoordinator.swift */; };
-		FA13FD29255E972E00F3D9F1 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD28255E972E00F3D9F1 /* AppCoordinator.swift */; };
+		FA13FD29255E972E00F3D9F1 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD28255E972E00F3D9F1 /* HomeCoordinator.swift */; };
 		FA9F0BB2255E732D002FFBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F0BB1255E732D002FFBF9 /* AppDelegate.swift */; };
 		FA9F0BB4255E732D002FFBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F0BB3255E732D002FFBF9 /* SceneDelegate.swift */; };
 		FA9F0BB6255E732D002FFBF9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F0BB5255E732D002FFBF9 /* HomeVC.swift */; };
@@ -38,9 +37,8 @@
 		FA13FD1E255E8C9200F3D9F1 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		FA13FD20255E96F300F3D9F1 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		FA13FD22255E96FF00F3D9F1 /* ListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVM.swift; sourceTree = "<group>"; };
-		FA13FD24255E970800F3D9F1 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		FA13FD26255E971200F3D9F1 /* ListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinator.swift; sourceTree = "<group>"; };
-		FA13FD28255E972E00F3D9F1 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		FA13FD28255E972E00F3D9F1 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		FA9F0BAE255E732D002FFBF9 /* SwiftBase_art.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBase_art.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9F0BB1255E732D002FFBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA9F0BB3255E732D002FFBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +83,7 @@
 				FA9F0BB5255E732D002FFBF9 /* HomeVC.swift */,
 				FA13FD14255E865800F3D9F1 /* HomeView.swift */,
 				FA13FD20255E96F300F3D9F1 /* HomeVM.swift */,
-				FA13FD24255E970800F3D9F1 /* HomeCoordinator.swift */,
+				FA13FD28255E972E00F3D9F1 /* HomeCoordinator.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -96,7 +94,6 @@
 				FA9F0BB1255E732D002FFBF9 /* AppDelegate.swift */,
 				FA9F0BB3255E732D002FFBF9 /* SceneDelegate.swift */,
 				FA13FD10255E862500F3D9F1 /* BaseNC.swift */,
-				FA13FD28255E972E00F3D9F1 /* AppCoordinator.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -119,6 +116,13 @@
 				FA13FD26255E971200F3D9F1 /* ListCoordinator.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		FA13FD2A255EA00B00F3D9F1 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		FA9F0BA5255E732D002FFBF9 = {
@@ -146,6 +150,7 @@
 				FA13FD16255E866100F3D9F1 /* Base */,
 				FA13FD0D255E858900F3D9F1 /* Home */,
 				FA13FD19255E8B9800F3D9F1 /* List */,
+				FA13FD2A255EA00B00F3D9F1 /* Detail */,
 				FA9F0BBA255E7330002FFBF9 /* Assets.xcassets */,
 				FA9F0BBC255E7330002FFBF9 /* LaunchScreen.storyboard */,
 				FA9F0BBF255E7330002FFBF9 /* Info.plist */,
@@ -274,11 +279,10 @@
 				FA13FD1B255E8BA300F3D9F1 /* ListVC.swift in Sources */,
 				FA13FD23255E96FF00F3D9F1 /* ListVM.swift in Sources */,
 				FA13FD18255E866700F3D9F1 /* BaseView.swift in Sources */,
-				FA13FD25255E970800F3D9F1 /* HomeCoordinator.swift in Sources */,
 				FA9F0BB4255E732D002FFBF9 /* SceneDelegate.swift in Sources */,
 				FA13FD27255E971200F3D9F1 /* ListCoordinator.swift in Sources */,
 				FA13FD11255E862500F3D9F1 /* BaseNC.swift in Sources */,
-				FA13FD29255E972E00F3D9F1 /* AppCoordinator.swift in Sources */,
+				FA13FD29255E972E00F3D9F1 /* HomeCoordinator.swift in Sources */,
 				FA13FD1D255E8BA900F3D9F1 /* ListView.swift in Sources */,
 				FA13FD1F255E8C9200F3D9F1 /* BaseVC.swift in Sources */,
 			);

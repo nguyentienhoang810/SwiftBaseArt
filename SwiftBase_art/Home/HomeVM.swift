@@ -8,4 +8,14 @@
 
 import Foundation
 
+struct HomeVM {
+    let homeCoordinator: HomeCoordinatorType
+}
 
+extension HomeVM {
+    
+    //MARK: handle navigator
+    func gotoList() {
+        homeCoordinator.gotoList()
+    }
+}

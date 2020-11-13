@@ -11,15 +11,20 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var appCoordinator: AppCoordinatorType?
+    var homeCoordinator: HomeCoordinatorType?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        window = UIWindow(frame: UIScreen.main.bounds)
-        let navigator = UINavigationController()
-        appCoordinator = AppCoordinator(navigator: navigator, window: window!)
-        appCoordinator?.start()
+        let rootNC = UINavigationController()
         
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            window.rootViewController = rootNC
+            
+            homeCoordinator = HomeCoordinator(navigator: rootNC, window: window)
+            homeCoordinator?.start()
+        }
+
     }
 }
 
