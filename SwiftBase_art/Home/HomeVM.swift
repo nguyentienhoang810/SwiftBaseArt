@@ -9,13 +9,13 @@
 import Foundation
 
 struct HomeVM {
-    let homeCoordinator: HomeCoordinatorType
+    let homeNavi: HomeNaviType
 }
 
 extension HomeVM {
     
     //MARK: handle navigator
     func gotoList() {
-        homeCoordinator.gotoList()
+        homeNavi.gotoList()
     }
 }
