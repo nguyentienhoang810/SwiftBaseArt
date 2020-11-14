@@ -24,6 +24,8 @@
 		FA1B4ADF255F86B1002780B2 /* AppVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4ADE255F86B1002780B2 /* AppVM.swift */; };
 		FA1B4AE1255F8836002780B2 /* AppAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4AE0255F8836002780B2 /* AppAssembler.swift */; };
 		FA1B4AE3255F9C0E002780B2 /* ListAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4AE2255F9C0E002780B2 /* ListAssembler.swift */; };
+		FA1B4AE9255FA432002780B2 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4AE8255FA432002780B2 /* UserRepository.swift */; };
+		FA1B4AED255FA49B002780B2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4AEC255FA49B002780B2 /* User.swift */; };
 		FA9F0BB2255E732D002FFBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F0BB1255E732D002FFBF9 /* AppDelegate.swift */; };
 		FA9F0BB4255E732D002FFBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F0BB3255E732D002FFBF9 /* SceneDelegate.swift */; };
 		FA9F0BB6255E732D002FFBF9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F0BB5255E732D002FFBF9 /* HomeVC.swift */; };
@@ -51,6 +53,8 @@
 		FA1B4ADE255F86B1002780B2 /* AppVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVM.swift; sourceTree = "<group>"; };
 		FA1B4AE0255F8836002780B2 /* AppAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembler.swift; sourceTree = "<group>"; };
 		FA1B4AE2255F9C0E002780B2 /* ListAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAssembler.swift; sourceTree = "<group>"; };
+		FA1B4AE8255FA432002780B2 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		FA1B4AEC255FA49B002780B2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FA9F0BAE255E732D002FFBF9 /* SwiftBase_art.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBase_art.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9F0BB1255E732D002FFBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA9F0BB3255E732D002FFBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +144,64 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		FA1B4AE4255FA3F3002780B2 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				FA1B4AE6255FA406002780B2 /* Repository */,
+				FA1B4AE5255FA3FE002780B2 /* Service */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		FA1B4AE5255FA3FE002780B2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FA1B4AE7255FA40B002780B2 /* API */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FA1B4AE6255FA406002780B2 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FA1B4AE8255FA432002780B2 /* UserRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		FA1B4AE7255FA40B002780B2 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		FA1B4AEA255FA488002780B2 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				FA1B4AEB255FA490002780B2 /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		FA1B4AEB255FA490002780B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA1B4AEC255FA49B002780B2 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA1B4AEE255FA565002780B2 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FA13FD0D255E858900F3D9F1 /* Home */,
+				FA13FD19255E8B9800F3D9F1 /* List */,
+				FA13FD2A255EA00B00F3D9F1 /* Detail */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		FA9F0BA5255E732D002FFBF9 = {
 			isa = PBXGroup;
 			children = (
@@ -164,11 +226,11 @@
 				FA9F0BB1255E732D002FFBF9 /* AppDelegate.swift */,
 				FA9F0BB3255E732D002FFBF9 /* SceneDelegate.swift */,
 				FA1B4ADC255F81A9002780B2 /* Assembler.swift */,
-				FA13FD0F255E85C500F3D9F1 /* App */,
+				FA1B4AE4255FA3F3002780B2 /* Platform */,
+				FA1B4AEA255FA488002780B2 /* Domain */,
 				FA13FD16255E866100F3D9F1 /* Base */,
-				FA13FD0D255E858900F3D9F1 /* Home */,
-				FA13FD19255E8B9800F3D9F1 /* List */,
-				FA13FD2A255EA00B00F3D9F1 /* Detail */,
+				FA13FD0F255E85C500F3D9F1 /* App */,
+				FA1B4AEE255FA565002780B2 /* Scenes */,
 				FA9F0BBA255E7330002FFBF9 /* Assets.xcassets */,
 				FA9F0BBC255E7330002FFBF9 /* LaunchScreen.storyboard */,
 				FA9F0BBF255E7330002FFBF9 /* Info.plist */,
@@ -308,7 +370,9 @@
 				FA13FD11255E862500F3D9F1 /* BaseNC.swift in Sources */,
 				FA13FD29255E972E00F3D9F1 /* HomeNavi.swift in Sources */,
 				FA13FD1D255E8BA900F3D9F1 /* ListView.swift in Sources */,
+				FA1B4AE9255FA432002780B2 /* UserRepository.swift in Sources */,
 				FA13FD1F255E8C9200F3D9F1 /* BaseVC.swift in Sources */,
+				FA1B4AED255FA49B002780B2 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

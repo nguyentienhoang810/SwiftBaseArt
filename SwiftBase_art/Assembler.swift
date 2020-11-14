@@ -14,6 +14,10 @@ final class MainAssembler: Assembler {
 
 }
 
-protocol Assembler: class, AppAssembler, HomeAssembler, ListAssembler {
+protocol Assembler:
+    class,
+    AppAssembler,
+    HomeAssembler,
+    ListAssembler {
     
 }

@@ -28,6 +28,4 @@ class HomeView: BaseView {
             make.centerY.equalTo(self)
         }
     }
-    
-    
 }
