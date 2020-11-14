@@ -13,22 +13,17 @@ protocol AppNaviType {
 }
 
 struct AppNavi: AppNaviType {
+    unowned let assembler: Assembler
     unowned let window: UIWindow
     
     func toHome() {
-        print("direct to home from AppNavi")
         let rootNC = UINavigationController()
-
         window.rootViewController = rootNC
-        
-        rootNC.pushViewController(HomeVC(), animated: true)
         window.makeKeyAndVisible()
 
-//        let homeCoordinator = HomeCoordinator(assembler: assembler,
-//                                            navigationController: rootNC,
-//                                            window: window)
-//        homeCoordinator.start()
-        
+        let homeNav = assembler.initNavi(navigator: rootNC)
+        homeNav.start()
+
     }
 }
 

@@ -14,19 +14,14 @@ protocol HomeNaviType {
 }
 
 struct HomeNavi {
-    var navigator: UINavigationController!
-    var window: UIWindow!
+    unowned let assembler: Assembler
+    unowned let navigator: UINavigationController
 }
 
 extension HomeNavi: HomeNaviType {
     func start() {
-//        let rootVC = HomeVC()
-//        let vm = HomeVM(homeCoordinator: self)
-//        rootVC.vm = vm
-//        navigator.pushViewController(rootVC, animated: true)
-//
-//        window.rootViewController = navigator
-//        window.makeKeyAndVisible()
+        let homeVC: HomeVC = assembler.initVC(navigator: navigator)
+        navigator.pushViewController(homeVC, animated: true)
     }
     
     func gotoList() {

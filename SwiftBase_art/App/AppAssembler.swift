@@ -19,8 +19,8 @@ extension AppAssembler {
     }
 }
 
-extension AppAssembler {
+extension AppAssembler where Self: Assembler {
     func initNavi(window: UIWindow) -> AppNaviType {
-        return AppNavi(window: window)
+        return AppNavi(assembler: self, window: window)
     }
 }
