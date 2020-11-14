@@ -12,6 +12,7 @@ import SnapKit
 class ListVC: UIViewController {
     
     let listView = ListView()
+    var vm: ListVM!
     
     override func viewDidLoad() {
         super.viewDidLoad()

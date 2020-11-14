@@ -22,6 +22,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             self.window = window
             let appVM: AppVM = assembler.initVM(window: window)
+            /*
+             xử lý điều hướng
+             ví dụ:
+             - Chưa login -> qua login
+             - Đã login -> qua home
+             */
             appVM.directToHome()
 
         }

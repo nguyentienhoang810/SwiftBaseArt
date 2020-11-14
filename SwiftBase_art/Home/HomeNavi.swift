@@ -25,7 +25,7 @@ extension HomeNavi: HomeNaviType {
     }
     
     func gotoList() {
-        let listVC = ListVC()
-        navigator.pushViewController(listVC, animated: true)
+        let listNavi = assembler.initNav(nav: navigator)
+        listNavi.start()
     }
 }

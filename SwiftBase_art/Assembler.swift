@@ -9,10 +9,11 @@
 import Foundation
 
 
+//Assembler đảm nhiệm việc init mọi thứ. VC, VM, Navi...
 final class MainAssembler: Assembler {
 
 }
 
-protocol Assembler: class, AppAssembler, HomeAssembler {
+protocol Assembler: class, AppAssembler, HomeAssembler, ListAssembler {
     
 }

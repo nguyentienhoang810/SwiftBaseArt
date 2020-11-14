@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct ListVM {
+    let listNavi: ListNaviType
+}
+
+extension ListVM {
+    func goback() {
+        listNavi.backToHome()
+    }
+}

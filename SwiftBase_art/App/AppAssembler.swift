@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Assembler đảm nhiệm việc init mọi thứ. VC, VM, Navi...
 protocol AppAssembler {
     func initVM(window: UIWindow) -> AppVM
     func initNavi(window: UIWindow) -> AppNaviType

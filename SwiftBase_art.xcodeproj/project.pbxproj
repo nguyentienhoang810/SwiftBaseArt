@@ -16,13 +16,14 @@
 		FA13FD1F255E8C9200F3D9F1 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD1E255E8C9200F3D9F1 /* BaseVC.swift */; };
 		FA13FD21255E96F300F3D9F1 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD20255E96F300F3D9F1 /* HomeVM.swift */; };
 		FA13FD23255E96FF00F3D9F1 /* ListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD22255E96FF00F3D9F1 /* ListVM.swift */; };
-		FA13FD27255E971200F3D9F1 /* ListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD26255E971200F3D9F1 /* ListCoordinator.swift */; };
+		FA13FD27255E971200F3D9F1 /* ListNavi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD26255E971200F3D9F1 /* ListNavi.swift */; };
 		FA13FD29255E972E00F3D9F1 /* HomeNavi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD28255E972E00F3D9F1 /* HomeNavi.swift */; };
 		FA1B4AD9255EED50002780B2 /* AppNavi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4AD8255EED50002780B2 /* AppNavi.swift */; };
 		FA1B4ADB255F8165002780B2 /* HomeAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4ADA255F8165002780B2 /* HomeAssembler.swift */; };
 		FA1B4ADD255F81A9002780B2 /* Assembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4ADC255F81A9002780B2 /* Assembler.swift */; };
 		FA1B4ADF255F86B1002780B2 /* AppVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4ADE255F86B1002780B2 /* AppVM.swift */; };
 		FA1B4AE1255F8836002780B2 /* AppAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4AE0255F8836002780B2 /* AppAssembler.swift */; };
+		FA1B4AE3255F9C0E002780B2 /* ListAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B4AE2255F9C0E002780B2 /* ListAssembler.swift */; };
 		FA9F0BB2255E732D002FFBF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F0BB1255E732D002FFBF9 /* AppDelegate.swift */; };
 		FA9F0BB4255E732D002FFBF9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F0BB3255E732D002FFBF9 /* SceneDelegate.swift */; };
 		FA9F0BB6255E732D002FFBF9 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9F0BB5255E732D002FFBF9 /* HomeVC.swift */; };
@@ -42,13 +43,14 @@
 		FA13FD1E255E8C9200F3D9F1 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		FA13FD20255E96F300F3D9F1 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		FA13FD22255E96FF00F3D9F1 /* ListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVM.swift; sourceTree = "<group>"; };
-		FA13FD26255E971200F3D9F1 /* ListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCoordinator.swift; sourceTree = "<group>"; };
+		FA13FD26255E971200F3D9F1 /* ListNavi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNavi.swift; sourceTree = "<group>"; };
 		FA13FD28255E972E00F3D9F1 /* HomeNavi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavi.swift; sourceTree = "<group>"; };
 		FA1B4AD8255EED50002780B2 /* AppNavi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavi.swift; sourceTree = "<group>"; };
 		FA1B4ADA255F8165002780B2 /* HomeAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAssembler.swift; sourceTree = "<group>"; };
 		FA1B4ADC255F81A9002780B2 /* Assembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembler.swift; sourceTree = "<group>"; };
 		FA1B4ADE255F86B1002780B2 /* AppVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVM.swift; sourceTree = "<group>"; };
 		FA1B4AE0255F8836002780B2 /* AppAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembler.swift; sourceTree = "<group>"; };
+		FA1B4AE2255F9C0E002780B2 /* ListAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListAssembler.swift; sourceTree = "<group>"; };
 		FA9F0BAE255E732D002FFBF9 /* SwiftBase_art.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftBase_art.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9F0BB1255E732D002FFBF9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA9F0BB3255E732D002FFBF9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,7 +127,8 @@
 				FA13FD1A255E8BA300F3D9F1 /* ListVC.swift */,
 				FA13FD1C255E8BA900F3D9F1 /* ListView.swift */,
 				FA13FD22255E96FF00F3D9F1 /* ListVM.swift */,
-				FA13FD26255E971200F3D9F1 /* ListCoordinator.swift */,
+				FA13FD26255E971200F3D9F1 /* ListNavi.swift */,
+				FA1B4AE2255F9C0E002780B2 /* ListAssembler.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				FA13FD21255E96F300F3D9F1 /* HomeVM.swift in Sources */,
 				FA1B4ADB255F8165002780B2 /* HomeAssembler.swift in Sources */,
 				FA1B4AE1255F8836002780B2 /* AppAssembler.swift in Sources */,
+				FA1B4AE3255F9C0E002780B2 /* ListAssembler.swift in Sources */,
 				FA9F0BB6255E732D002FFBF9 /* HomeVC.swift in Sources */,
 				FA9F0BB2255E732D002FFBF9 /* AppDelegate.swift in Sources */,
 				FA1B4ADF255F86B1002780B2 /* AppVM.swift in Sources */,
@@ -300,7 +304,7 @@
 				FA1B4ADD255F81A9002780B2 /* Assembler.swift in Sources */,
 				FA13FD18255E866700F3D9F1 /* BaseView.swift in Sources */,
 				FA9F0BB4255E732D002FFBF9 /* SceneDelegate.swift in Sources */,
-				FA13FD27255E971200F3D9F1 /* ListCoordinator.swift in Sources */,
+				FA13FD27255E971200F3D9F1 /* ListNavi.swift in Sources */,
 				FA13FD11255E862500F3D9F1 /* BaseNC.swift in Sources */,
 				FA13FD29255E972E00F3D9F1 /* HomeNavi.swift in Sources */,
 				FA13FD1D255E8BA900F3D9F1 /* ListView.swift in Sources */,
