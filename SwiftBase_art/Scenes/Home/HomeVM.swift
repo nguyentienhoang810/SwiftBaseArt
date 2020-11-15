@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 class HomeVM: ViewModel {
     typealias Navi = HomeNavi
@@ -16,12 +17,20 @@ class HomeVM: ViewModel {
     required init(coordinator: HomeNavi) {
         self.navi = coordinator
     }
+    
+    func getListClass() -> AnyPublisher<[Class], Never> {
+        return StoreGroup.studentStore.$state.map{ $0.listClass }.eraseToAnyPublisher()
+    }
 }
 
 extension HomeVM {    
     //MARK: Handle navigator
     
-    func goToList() {
-        navi.goToList()
+    func goToListStudent() {
+        navi.goToListStudent()
+    }
+    
+    func showAddClass() {
+        navi.showAddClass()
     }
 }

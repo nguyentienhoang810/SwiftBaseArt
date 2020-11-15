@@ -7,13 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180F482F25617FD3004CADEE /* AddClassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F482D25617FD3004CADEE /* AddClassVC.swift */; };
+		180F483025617FD3004CADEE /* AddClassVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 180F482E25617FD3004CADEE /* AddClassVC.xib */; };
+		180F483325617FEE004CADEE /* AddClassVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F483225617FEE004CADEE /* AddClassVM.swift */; };
+		180F483625618029004CADEE /* AddClassNavi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F483525618029004CADEE /* AddClassNavi.swift */; };
+		180F483925618034004CADEE /* AddClassAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180F483825618034004CADEE /* AddClassAssembler.swift */; };
+		1832E5BF25610477001575DC /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832E5BE25610477001575DC /* Class.swift */; };
+		1832E5C22561050F001575DC /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832E5C12561050F001575DC /* Student.swift */; };
+		1832E5C5256105C8001575DC /* ListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1832E5C4256105C8001575DC /* ListVC.xib */; };
+		1832E5CB256107F5001575DC /* AddStudentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832E5C9256107F5001575DC /* AddStudentVC.swift */; };
+		1832E5CC256107F5001575DC /* AddStudentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1832E5CA256107F5001575DC /* AddStudentVC.xib */; };
+		1832E5CF25610864001575DC /* AddStudentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832E5CE25610864001575DC /* AddStudentVM.swift */; };
+		1832E5D225610872001575DC /* AddStudentNavi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832E5D125610872001575DC /* AddStudentNavi.swift */; };
+		1832E5D52561087F001575DC /* AddStudentAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1832E5D42561087F001575DC /* AddStudentAssembler.swift */; };
 		1861A9132560DB5E00D757C0 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1861A9122560DB5E00D757C0 /* HomeVC.xib */; };
 		186C210925603CC4008A3A91 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C210825603CC4008A3A91 /* Helper.swift */; };
 		787D5646CF3B33247AFFD5F7 /* Pods_SwiftBase_art.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F378DDCA874736900F974B6F /* Pods_SwiftBase_art.framework */; };
 		FA13FD11255E862500F3D9F1 /* BaseNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD10255E862500F3D9F1 /* BaseNC.swift */; };
 		FA13FD18255E866700F3D9F1 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD17255E866700F3D9F1 /* BaseView.swift */; };
 		FA13FD1B255E8BA300F3D9F1 /* ListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD1A255E8BA300F3D9F1 /* ListVC.swift */; };
-		FA13FD1D255E8BA900F3D9F1 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD1C255E8BA900F3D9F1 /* ListView.swift */; };
 		FA13FD1F255E8C9200F3D9F1 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD1E255E8C9200F3D9F1 /* BaseVC.swift */; };
 		FA13FD21255E96F300F3D9F1 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD20255E96F300F3D9F1 /* HomeVM.swift */; };
 		FA13FD23255E96FF00F3D9F1 /* ListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA13FD22255E96FF00F3D9F1 /* ListVM.swift */; };
@@ -35,6 +47,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		180F482D25617FD3004CADEE /* AddClassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassVC.swift; sourceTree = "<group>"; };
+		180F482E25617FD3004CADEE /* AddClassVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddClassVC.xib; sourceTree = "<group>"; };
+		180F483225617FEE004CADEE /* AddClassVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassVM.swift; sourceTree = "<group>"; };
+		180F483525618029004CADEE /* AddClassNavi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassNavi.swift; sourceTree = "<group>"; };
+		180F483825618034004CADEE /* AddClassAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddClassAssembler.swift; sourceTree = "<group>"; };
+		1832E5BE25610477001575DC /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		1832E5C12561050F001575DC /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		1832E5C4256105C8001575DC /* ListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListVC.xib; sourceTree = "<group>"; };
+		1832E5C9256107F5001575DC /* AddStudentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentVC.swift; sourceTree = "<group>"; };
+		1832E5CA256107F5001575DC /* AddStudentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddStudentVC.xib; sourceTree = "<group>"; };
+		1832E5CE25610864001575DC /* AddStudentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentVM.swift; sourceTree = "<group>"; };
+		1832E5D125610872001575DC /* AddStudentNavi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentNavi.swift; sourceTree = "<group>"; };
+		1832E5D42561087F001575DC /* AddStudentAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStudentAssembler.swift; sourceTree = "<group>"; };
 		1861A9122560DB5E00D757C0 /* HomeVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		186C210825603CC4008A3A91 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		C66DE11AC9F1BB982AAB8479 /* Pods-SwiftBase_art.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftBase_art.release.xcconfig"; path = "Target Support Files/Pods-SwiftBase_art/Pods-SwiftBase_art.release.xcconfig"; sourceTree = "<group>"; };
@@ -43,7 +68,6 @@
 		FA13FD10255E862500F3D9F1 /* BaseNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNC.swift; sourceTree = "<group>"; };
 		FA13FD17255E866700F3D9F1 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		FA13FD1A255E8BA300F3D9F1 /* ListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVC.swift; sourceTree = "<group>"; };
-		FA13FD1C255E8BA900F3D9F1 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		FA13FD1E255E8C9200F3D9F1 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		FA13FD20255E96F300F3D9F1 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		FA13FD22255E96FF00F3D9F1 /* ListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListVM.swift; sourceTree = "<group>"; };
@@ -78,6 +102,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		180F482C25617FC0004CADEE /* AddClass */ = {
+			isa = PBXGroup;
+			children = (
+				180F482D25617FD3004CADEE /* AddClassVC.swift */,
+				180F482E25617FD3004CADEE /* AddClassVC.xib */,
+				180F483225617FEE004CADEE /* AddClassVM.swift */,
+				180F483525618029004CADEE /* AddClassNavi.swift */,
+				180F483825618034004CADEE /* AddClassAssembler.swift */,
+			);
+			path = AddClass;
+			sourceTree = "<group>";
+		};
+		1832E5BD25610463001575DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1832E5BE25610477001575DC /* Class.swift */,
+				1832E5C12561050F001575DC /* Student.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1832E5C8256107CF001575DC /* AddStudent */ = {
+			isa = PBXGroup;
+			children = (
+				1832E5C9256107F5001575DC /* AddStudentVC.swift */,
+				1832E5CA256107F5001575DC /* AddStudentVC.xib */,
+				1832E5CE25610864001575DC /* AddStudentVM.swift */,
+				1832E5D125610872001575DC /* AddStudentNavi.swift */,
+				1832E5D42561087F001575DC /* AddStudentAssembler.swift */,
+			);
+			path = AddStudent;
+			sourceTree = "<group>";
+		};
 		186C210725603CB8008A3A91 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,7 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				FA13FD1A255E8BA300F3D9F1 /* ListVC.swift */,
-				FA13FD1C255E8BA900F3D9F1 /* ListView.swift */,
+				1832E5C4256105C8001575DC /* ListVC.xib */,
 				FA13FD22255E96FF00F3D9F1 /* ListVM.swift */,
 				FA13FD26255E971200F3D9F1 /* ListNavi.swift */,
 				FA1B4AE2255F9C0E002780B2 /* ListAssembler.swift */,
@@ -222,8 +279,11 @@
 		FA1B4AEE255FA565002780B2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				180F482C25617FC0004CADEE /* AddClass */,
+				1832E5C8256107CF001575DC /* AddStudent */,
 				FA13FD0D255E858900F3D9F1 /* Home */,
 				FA13FD19255E8B9800F3D9F1 /* List */,
+				1832E5BD25610463001575DC /* Model */,
 				FA13FD2A255EA00B00F3D9F1 /* Detail */,
 			);
 			path = Scenes;
@@ -325,9 +385,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1832E5C5256105C8001575DC /* ListVC.xib in Resources */,
 				FA9F0BBE255E7330002FFBF9 /* LaunchScreen.storyboard in Resources */,
+				1832E5CC256107F5001575DC /* AddStudentVC.xib in Resources */,
 				1861A9132560DB5E00D757C0 /* HomeVC.xib in Resources */,
 				FA9F0BBB255E7330002FFBF9 /* Assets.xcassets in Resources */,
+				180F483025617FD3004CADEE /* AddClassVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,20 +450,29 @@
 				FA9F0BB6255E732D002FFBF9 /* HomeVC.swift in Sources */,
 				FA9F0BB2255E732D002FFBF9 /* AppDelegate.swift in Sources */,
 				FA1B4ADF255F86B1002780B2 /* AppVM.swift in Sources */,
+				1832E5D225610872001575DC /* AddStudentNavi.swift in Sources */,
 				FA13FD1B255E8BA300F3D9F1 /* ListVC.swift in Sources */,
 				FA13FD23255E96FF00F3D9F1 /* ListVM.swift in Sources */,
+				180F483625618029004CADEE /* AddClassNavi.swift in Sources */,
 				FA1B4AD9255EED50002780B2 /* AppNavi.swift in Sources */,
+				180F482F25617FD3004CADEE /* AddClassVC.swift in Sources */,
+				1832E5C22561050F001575DC /* Student.swift in Sources */,
 				186C210925603CC4008A3A91 /* Helper.swift in Sources */,
 				FA1B4ADD255F81A9002780B2 /* Assembler.swift in Sources */,
+				1832E5BF25610477001575DC /* Class.swift in Sources */,
 				FA13FD18255E866700F3D9F1 /* BaseView.swift in Sources */,
+				1832E5CF25610864001575DC /* AddStudentVM.swift in Sources */,
 				FA9F0BB4255E732D002FFBF9 /* SceneDelegate.swift in Sources */,
 				FA13FD27255E971200F3D9F1 /* ListNavi.swift in Sources */,
 				FA13FD11255E862500F3D9F1 /* BaseNC.swift in Sources */,
 				FA13FD29255E972E00F3D9F1 /* HomeNavi.swift in Sources */,
-				FA13FD1D255E8BA900F3D9F1 /* ListView.swift in Sources */,
 				FA1B4AE9255FA432002780B2 /* UserRepository.swift in Sources */,
 				FA13FD1F255E8C9200F3D9F1 /* BaseVC.swift in Sources */,
+				1832E5CB256107F5001575DC /* AddStudentVC.swift in Sources */,
+				180F483925618034004CADEE /* AddClassAssembler.swift in Sources */,
 				FA1B4AED255FA49B002780B2 /* User.swift in Sources */,
+				180F483325617FEE004CADEE /* AddClassVM.swift in Sources */,
+				1832E5D52561087F001575DC /* AddStudentAssembler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

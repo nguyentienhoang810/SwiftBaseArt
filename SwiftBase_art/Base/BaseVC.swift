@@ -13,4 +13,22 @@ class BaseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    func setTrailingNavButton() {
+        let barButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle.fill"),
+                                        style: .plain,
+                                        target: self,
+                                        action: #selector(trailingNavButtonTapped))
+        navigationItem.rightBarButtonItem = barButton
+    }
+    
+    @objc func trailingNavButtonTapped() {}
+    
+    @IBAction func close() {
+        if let nc = navigationController {
+            nc.dismiss(animated: true, completion: nil)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
+    }
 }

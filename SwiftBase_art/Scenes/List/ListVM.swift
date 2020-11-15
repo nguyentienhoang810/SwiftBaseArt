@@ -20,4 +20,8 @@ class ListVM: ViewModel {
 
 extension ListVM {
     // MARK: - Handle navigator
+    
+    func showAddStudent() {
+        navi.showAddStudent()
+    }
 }

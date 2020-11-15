@@ -20,4 +20,9 @@ struct ListNavi: Coordinator {
         vc.title = "List Student"
         navigator?.pushViewController(vc, animated: true)
     }
+    
+    func showAddStudent() {
+        let addStudentNavi = AddStudentNavi(navigator: navigator)
+        addStudentNavi.start()
+    }
 }
