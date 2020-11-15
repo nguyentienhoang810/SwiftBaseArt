@@ -8,12 +8,24 @@
 
 import Foundation
 
-struct AppVM {
-    let nav: AppNaviType
+class AppVM: ViewModel {
+    typealias Navi = AppNavi
+    
+    var navi: AppNavi
+    
+    required init(coordinator: AppNavi) {
+        self.navi = coordinator
+    }
 }
 
 extension AppVM {
-    func directToHome() {
-        nav.toHome()
+    // MARK: - Handle navigator
+    
+    func goToHome() {
+        navi.goToHome()
+    }
+    
+    func goToLogin() {
+        navi.goToLogin()
     }
 }

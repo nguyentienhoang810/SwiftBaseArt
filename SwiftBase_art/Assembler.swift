@@ -7,17 +7,13 @@
 //
 
 import Foundation
+import UIKit
 
-
-//Assembler đảm nhiệm việc init mọi thứ. VC, VM, Navi...
-final class MainAssembler: Assembler {
-
-}
-
-protocol Assembler:
-    class,
-    AppAssembler,
-    HomeAssembler,
-    ListAssembler {
+protocol Assembler {
+    associatedtype VC: UIViewController
+    associatedtype VM: ViewModel
+    associatedtype Navi: Coordinator
     
+    func initVC(coordinator: Navi) -> VC
+    func initVM(coordinator: Navi) -> VM
 }

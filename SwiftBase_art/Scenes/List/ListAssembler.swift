@@ -8,27 +8,18 @@
 
 import UIKit
 
-protocol ListAssembler {
-    func initVC(nav: UINavigationController) -> ListVC
-    func initVM(nav: UINavigationController) -> ListVM
-    func initNav(nav: UINavigationController) -> ListNaviType
-}
-
-extension ListAssembler {
-    func initVC(nav: UINavigationController) -> ListVC {
+struct ListAssembler: Assembler {
+    typealias VC = ListVC
+    typealias VM = ListVM
+    typealias Navi = ListNavi
+    
+    func initVC(coordinator: ListNavi) -> ListVC {
         let vc = ListVC()
-        let vm = initVM(nav: nav)
-        vc.vm = vm
+        vc.vm = initVM(coordinator: coordinator)
         return vc
     }
     
-    func initVM(nav: UINavigationController) -> ListVM {
-        return ListVM(listNavi: initNav(nav: nav))
-    }
-}
-
-extension ListAssembler where Self: Assembler {
-    func initNav(nav: UINavigationController) -> ListNaviType {
-        return ListNavi(nav: nav)
+    func initVM(coordinator: ListNavi) -> ListVM {
+        return ListVM(coordinator: coordinator)
     }
 }

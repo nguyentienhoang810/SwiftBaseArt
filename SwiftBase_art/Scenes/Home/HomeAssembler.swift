@@ -8,27 +8,18 @@
 
 import UIKit
 
-protocol HomeAssembler {
-    func initVC(navigator: UINavigationController) -> HomeVC
-    func initVM(navigator: UINavigationController) -> HomeVM
-    func initNavi(navigator: UINavigationController) -> HomeNaviType
-}
-
-extension HomeAssembler {
-    func initVC(navigator: UINavigationController) -> HomeVC {
-        let vm = initVM(navigator: navigator)
+struct HomeAssembler: Assembler {
+    typealias VC = HomeVC
+    typealias VM = HomeVM
+    typealias Navi = HomeNavi
+    
+    func initVC(coordinator: HomeNavi) -> HomeVC {
         let vc = HomeVC()
-        vc.vm = vm
+        vc.vm = initVM(coordinator: coordinator)
         return vc
     }
-
-    func initVM(navigator: UINavigationController) -> HomeVM {
-        return HomeVM(homeNavi: initNavi(navigator: navigator))
-    }
-}
-
-extension HomeAssembler where Self: Assembler {
-    func initNavi(navigator: UINavigationController) -> HomeNaviType {
-        return HomeNavi(assembler: self, navigator: navigator)
+    
+    func initVM(coordinator: HomeNavi) -> HomeVM {
+        return HomeVM(coordinator: coordinator)
     }
 }

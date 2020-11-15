@@ -8,24 +8,21 @@
 
 import UIKit
 
-protocol HomeNaviType {
-    func start()
-    func gotoList()
-}
-
-struct HomeNavi {
-    unowned let assembler: Assembler
-    unowned let navigator: UINavigationController
-}
-
-extension HomeNavi: HomeNaviType {
-    func start() {
-        let homeVC: HomeVC = assembler.initVC(navigator: navigator)
-        navigator.pushViewController(homeVC, animated: true)
+struct HomeNavi: Coordinator {
+    weak var navigator: UINavigationController?
+    
+    init(navigator: UINavigationController?) {
+        self.navigator = navigator
     }
     
-    func gotoList() {
-        let listNavi = assembler.initNav(nav: navigator)
+    func start() {
+        let vc = HomeAssembler().initVC(coordinator: self)
+        vc.title = "List Class"
+        navigator?.pushViewController(vc, animated: false)
+    }
+    
+    func goToList() {
+        let listNavi = ListNavi(navigator: navigator)
         listNavi.start()
     }
 }

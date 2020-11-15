@@ -8,14 +8,20 @@
 
 import Foundation
 
-struct HomeVM {
-    let homeNavi: HomeNaviType
+class HomeVM: ViewModel {
+    typealias Navi = HomeNavi
+    
+    var navi: HomeNavi
+    
+    required init(coordinator: HomeNavi) {
+        self.navi = coordinator
+    }
 }
 
-extension HomeVM {
+extension HomeVM {    
+    //MARK: Handle navigator
     
-    //MARK: handle navigator
-    func gotoList() {
-        homeNavi.gotoList()
+    func goToList() {
+        navi.goToList()
     }
 }

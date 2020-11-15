@@ -8,22 +8,16 @@
 
 import UIKit
 
-protocol ListNaviType {
-    func start()
-    func backToHome()
-}
-
-struct ListNavi {
-    unowned let nav: UINavigationController
-}
-
-extension ListNavi: ListNaviType {
-    func start() {
-        let listVC = ListVC()
-        nav.pushViewController(listVC, animated: true)
+struct ListNavi: Coordinator {
+    weak var navigator: UINavigationController?
+    
+    init(navigator: UINavigationController?) {
+        self.navigator = navigator
     }
     
-    func backToHome() {
-        nav.popViewController(animated: true)
+    func start() {
+        let vc = ListAssembler().initVC(coordinator: self)
+        vc.title = "List Student"
+        navigator?.pushViewController(vc, animated: true)
     }
 }

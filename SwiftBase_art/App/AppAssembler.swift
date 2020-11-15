@@ -8,20 +8,24 @@
 
 import UIKit
 
-//Assembler đảm nhiệm việc init mọi thứ. VC, VM, Navi...
-protocol AppAssembler {
-    func initVM(window: UIWindow) -> AppVM
-    func initNavi(window: UIWindow) -> AppNaviType
-}
-
-extension AppAssembler {
+struct AppAssembler: Assembler {
+    typealias VC = UINavigationController
+    typealias VM = AppVM
+    typealias Navi = AppNavi
+    
     func initVM(window: UIWindow) -> AppVM {
-        return AppVM(nav: initNavi(window: window))
+        let vc = UINavigationController()
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+        let navi = AppNavi(navigator: vc)
+        return initVM(coordinator: navi)
     }
-}
-
-extension AppAssembler where Self: Assembler {
-    func initNavi(window: UIWindow) -> AppNaviType {
-        return AppNavi(assembler: self, window: window)
+    
+    func initVC(coordinator: AppNavi) -> UINavigationController {
+        fatalError("Can't init AppVC")
+    }
+    
+    func initVM(coordinator: AppNavi) -> AppVM {
+        return AppVM(coordinator: coordinator)
     }
 }

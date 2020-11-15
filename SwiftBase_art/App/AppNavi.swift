@@ -8,22 +8,28 @@
 
 import UIKit
 
-protocol AppNaviType {
-    func toHome()
-}
-
-struct AppNavi: AppNaviType {
-    unowned let assembler: Assembler
-    unowned let window: UIWindow
+struct AppNavi: Coordinator {
+    weak var navigator: UINavigationController?
     
-    func toHome() {
-        let rootNC = UINavigationController()
-        window.rootViewController = rootNC
-        window.makeKeyAndVisible()
-
-        let homeNav = assembler.initNavi(navigator: rootNC)
-        homeNav.start()
-
+    init(navigator: UINavigationController?) {
+        self.navigator = navigator
+    }
+    
+    func start() {
+        /*
+         xử lý điều hướng
+         ví dụ:
+         - Chưa login -> qua login
+         - Đã login -> qua home
+         */
+        goToHome()
+    }
+    
+    func goToHome() {
+        let homeNavi = HomeNavi(navigator: navigator)
+        homeNavi.start()
+    }
+    
+    func goToLogin() {
     }
 }
-

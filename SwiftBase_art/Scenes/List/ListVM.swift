@@ -8,12 +8,16 @@
 
 import Foundation
 
-struct ListVM {
-    let listNavi: ListNaviType
+class ListVM: ViewModel {
+    typealias Navi = ListNavi
+    
+    var navi: ListNavi
+    
+    required init(coordinator: ListNavi) {
+        self.navi = coordinator
+    }
 }
 
 extension ListVM {
-    func goback() {
-        listNavi.backToHome()
-    }
+    // MARK: - Handle navigator
 }

@@ -7,28 +7,40 @@
 //
 
 import UIKit
-import SnapKit
 
 class HomeVC: UIViewController {
+    @IBOutlet private var tableView: UITableView!
     
-    let subView = HomeView()
     var vm: HomeVM!
+    
+    // MARK: - Private properties
+    
+    private let cellIdentifier = "HomeCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addSubview(subView)
-        subView.snp.makeConstraints { (make) in
-            make.width.equalToSuperview()
-            make.height.equalToSuperview()
-        }
-        
-        subView.nextBtn.addTarget(self, action: #selector(gotoList), for: .touchUpInside)
+        setupTableView()
     }
 
-    @objc func gotoList() {
-        vm.gotoList()
+    // MARK: - Private methods
+    
+    private func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
-
 }
 
+extension HomeVC: UITableViewDataSource, UITableViewDelegate {
+    // MARK: - UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        cell.textLabel?.text = "Row \(indexPath.row + 1)"
+        return cell
+    }
+}
