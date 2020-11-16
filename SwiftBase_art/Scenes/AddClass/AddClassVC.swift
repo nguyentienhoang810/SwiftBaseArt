@@ -30,7 +30,12 @@ class AddClassVC: BaseVC {
     private func setupUI() {
         nameTextField.backgroundColor = .white
         nameTextField.placeholder = "Class name"
-        addButton.setTitleColor(.white, for: .normal)
+        addButton.setTitleColor(.blue, for: .normal)
+        addButton.backgroundColor = .white
+        addButton.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMinYCorner, .layerMinXMaxYCorner]
+        addButton.layer.cornerRadius = 8
+        addButton.layer.masksToBounds = true
+        addButton.contentEdgeInsets = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
         closeButton.setTitle("", for: .normal)
         let closeImage = UIImage(systemName: "xmark")?
             .applyingSymbolConfiguration(UIImage.SymbolConfiguration(weight: .bold))?
@@ -43,7 +48,7 @@ class AddClassVC: BaseVC {
             return
         }
         let aClass = Class(name: name, students: [])
-        StoreGroup.studentStore.dispatch(action: StudentAction.addClass(aClass))
+        vm.addClass(aClass)
         vm.backToHome()
     }
 }

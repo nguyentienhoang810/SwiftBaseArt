@@ -43,4 +43,11 @@ extension Array where Element == Class {
         }
         return self
     }
+    
+    func getListStudent(from aClass: Class) -> [Student] {
+        if let index = self.firstIndex(where: { $0.id == aClass.id }) {
+            return self[index].students
+        }
+        return []
+    }
 }

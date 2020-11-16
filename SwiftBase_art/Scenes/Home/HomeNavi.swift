@@ -21,9 +21,9 @@ struct HomeNavi: Coordinator {
         navigator?.pushViewController(vc, animated: false)
     }
     
-    func goToListStudent() {
+    func goToListStudent(aClass: Class) {
         let listNavi = ListNavi(navigator: navigator)
-        listNavi.start()
+        listNavi.start(aClass: aClass)
     }
     
     func showAddClass() {

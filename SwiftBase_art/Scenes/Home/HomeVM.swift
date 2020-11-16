@@ -26,8 +26,8 @@ class HomeVM: ViewModel {
 extension HomeVM {    
     //MARK: Handle navigator
     
-    func goToListStudent() {
-        navi.goToListStudent()
+    func goToListStudent(aClass: Class) {
+        navi.goToListStudent(aClass: aClass)
     }
     
     func showAddClass() {

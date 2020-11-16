@@ -21,6 +21,12 @@ struct ListNavi: Coordinator {
         navigator?.pushViewController(vc, animated: true)
     }
     
+    func start(aClass: Class) {
+        let vc = ListAssembler().initVC(coordinator: self)
+        vc.aClass = aClass
+        navigator?.pushViewController(vc, animated: true)
+    }
+    
     func showAddStudent() {
         let addStudentNavi = AddStudentNavi(navigator: navigator)
         addStudentNavi.start()

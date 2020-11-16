@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 class ListVM: ViewModel {
     typealias Navi = ListNavi
@@ -23,5 +24,9 @@ extension ListVM {
     
     func showAddStudent() {
         navi.showAddStudent()
+    }
+    
+    func getListStudent(from aClass: Class) -> AnyPublisher<[Student], Never> {
+        return StoreGroup.studentStore.$state.map { $0.listClass.getListStudent(from: aClass) }.eraseToAnyPublisher()
     }
 }

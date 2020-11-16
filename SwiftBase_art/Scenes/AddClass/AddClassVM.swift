@@ -16,6 +16,10 @@ class AddClassVM: ViewModel {
     required init(coordinator: AddClassNavi) {
         self.navi = coordinator
     }
+    
+    func addClass(_ aClass: Class) {
+        StoreGroup.studentStore.dispatch(action: StudentAction.addClass(aClass))
+    }
 }
 
 extension AddClassVM {

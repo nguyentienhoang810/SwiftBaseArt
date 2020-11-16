@@ -19,6 +19,13 @@ class HomeVC: BaseVC {
     private let cellIdentifier = "HomeCell"
     private var cancellables = Set<AnyCancellable>()
     
+    private var detailLabel: UILabel {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        label.frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+        return label
+    }
+    
     private var listClass: [Class] = [] {
         didSet {
             tableView.reloadData()
@@ -64,13 +71,22 @@ extension HomeVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         let aClass = listClass[indexPath.row]
         cell.textLabel?.text = "\(aClass.name)"
-        cell.detailTextLabel?.text = "\(aClass.students.count) students"
+        let detailLabel = self.detailLabel
+        let numberOfStudent = aClass.students.count
+        if numberOfStudent == 1 {
+            detailLabel.text = "1 student"
+        } else if numberOfStudent > 1 {
+            detailLabel.text = "\(numberOfStudent) students"
+        }
+        detailLabel.sizeToFit()
+        cell.accessoryView = detailLabel
         return cell
     }
 
     // MARK: - UITableViewDelegate
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        vm.goToListStudent()
+        let aClass = listClass[indexPath.row]
+        vm.goToListStudent(aClass: aClass)
     }
 }

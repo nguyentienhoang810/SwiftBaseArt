@@ -23,4 +23,7 @@ struct AddStudentNavi: Coordinator {
         navigator?.present(nc, animated: true, completion: nil)
     }
     
+    func backToListStudent() {
+        navigator?.dismiss(animated: true, completion: nil)
+    }
 }
