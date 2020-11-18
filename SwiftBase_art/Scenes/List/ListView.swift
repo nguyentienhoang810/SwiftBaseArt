@@ -13,7 +13,9 @@ class ListView: BaseView {
     
     lazy var tableView: UITableView = {
         let table = UITableView()
-        
+        table.delegate = self
+        table.dataSource = self
+        table.register(Item.self, forCellReuseIdentifier: "Cell")
         return table
     }()
     
@@ -41,4 +43,22 @@ class ListView: BaseView {
             make.bottom.equalTo(self.snp.bottom)
         }
     }
+}
+
+extension ListView: UITableViewDelegate {
+    
+}
+
+extension ListView: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! Item
+        
+        return cell
+    }
+    
+    
 }
