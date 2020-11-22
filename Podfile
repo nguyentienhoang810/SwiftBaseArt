@@ -8,5 +8,8 @@ target 'SwiftBase_art' do
   # Pods for SwiftBase_art
     pod 'SnapKit', '~> 5.0.0'
     pod 'IQKeyboardManagerSwift'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Firestore'
+    pod 'FirebaseFirestoreSwift'
 
 end

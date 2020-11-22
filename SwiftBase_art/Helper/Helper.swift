@@ -6,9 +6,9 @@
 //  Copyright © 2020 MacBook. All rights reserved.
 //
 
+import Combine
 import Foundation
 import UIKit
-import Combine
 
 protocol Coordinator {
     var navigator: UINavigationController? { get set }
@@ -38,69 +38,54 @@ protocol Action {}
 
 protocol ReduxState {}
 
-typealias Reducer<S: ReduxState> = (S, Action) -> S
+protocol Reducer {
+    func handlerAction(state: ReduxState, action: Action) -> ReduxState
+}
+
+protocol Middleware {
+    func proccess(getState: @escaping GetState, dispatch: @escaping DispatchFunction) -> (@escaping DispatchFunction) -> DispatchFunction
+}
 
 protocol Store: ObservableObject {
     associatedtype S: ReduxState
 
-    var reducer: Reducer<S> { get }
+    var reducer: Reducer { get }
     var state: S { get set }
+    var middleware: Middleware { get set }
 
-    init(reducer: @escaping Reducer<S>, state: S)
+    init(reducer: Reducer, state: S, middleware: Middleware)
 
-    func dispatch(action: Action)
-    func getState() -> S
+    @discardableResult
+    func dispatch(action: Action) -> Any
+    func getState() -> S?
 }
 
-// Student State
-
-enum StudentAction: Action {
-    case addStudent(Student, Class)
-    case removeStudent(Student, Class)
-    case addClass(Class)
-    case removeClass(Class)
-}
-
-struct StudentState: ReduxState {
-    var listClass: [Class] = []
-}
-
-let StudentReducer: Reducer<StudentState> = { state, action in
-    if let action = action as? StudentAction {
-        switch action {
-        case let .addClass(aClass):
-            return StudentState(listClass: state.listClass + [aClass])
-        case let .removeClass(aClass):
-            return StudentState(listClass: state.listClass.remove(aClass: aClass))
-        case let .addStudent(student, aClass):
-            return StudentState(listClass: state.listClass.add(student: student, toClass: aClass))
-        case let .removeStudent(student, aClass):
-            return StudentState(listClass: state.listClass.remove(student: student, inClass: aClass))
+extension Store {
+    func dispatch(action: Action) -> Any {
+        let getState: GetState = { [unowned self] in
+            self.getState()
         }
-    }
-    return StudentState()
-}
-
-class StudentStore: Store {
-    typealias S = StudentState
-
-    var reducer: Reducer<StudentState>
-    @Published var state: StudentState
-
-    required init(reducer: @escaping Reducer<StudentState>, state: StudentState) {
-        self.reducer = reducer
-        self.state = state
+        let dispatch: DispatchFunction = { [unowned self] in
+            self.dispatch(action: $0)
+        }
+        let dispatchCore: DispatchFunction = { [unowned self] in
+            self.dispatchCore(action: $0)
+        }
+        return middleware.proccess(getState: getState, dispatch: dispatch)(dispatchCore)(action)
     }
 
-    func dispatch(action: Action) {
-        state = reducer(state, action)
-    }
-
-    func getState() -> StudentState {
+    func getState() -> S? {
         return state
     }
+
+    fileprivate func dispatchCore(action: Action) {
+        state = reducer.handlerAction(state: state, action: action) as! Self.S
+    }
 }
 
+typealias GetState = () -> ReduxState?
+typealias DispatchFunction = (Action) -> Any
+
 struct StoreGroup {
-    static let studentStore = StudentStore(reducer: StudentReducer, state: StudentState(listClass: []))
+    static let studentStore = StudentStore(reducer: StudentReducer(), state: StudentState(listClass: []), middleware: StudentMiddleware())
 }

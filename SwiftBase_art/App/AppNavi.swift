@@ -22,7 +22,7 @@ struct AppNavi: Coordinator {
          - Chưa login -> qua login
          - Đã login -> qua home
          */
-        goToHome()
+        goToLogin()
     }
     
     func goToHome() {
@@ -31,5 +31,7 @@ struct AppNavi: Coordinator {
     }
     
     func goToLogin() {
+        let loginNavi = LoginNavi(navigator: navigator)
+        loginNavi.start()
     }
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>48196144522-dokm45mneh1gaenijfl5ffd2v5oa9fim.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.48196144522-dokm45mneh1gaenijfl5ffd2v5oa9fim</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDI8WXZ150GWOK39ZH9-rhCGHZgGyEmzaE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>48196144522</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.SwiftBase-art</string>
+	<key>PROJECT_ID</key>
+	<string>reduxdemo-2c421</string>
+	<key>STORAGE_BUCKET</key>
+	<string>reduxdemo-2c421.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:48196144522:ios:71cbf43ea7ec71ca180c73</string>
+	<key>DATABASE_URL</key>
+	<string>https://reduxdemo-2c421.firebaseio.com</string>
+</dict>
+</plist>
