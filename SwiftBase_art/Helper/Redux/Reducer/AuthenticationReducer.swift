@@ -6,6 +6,7 @@
 //  Copyright © 2020 MacBook. All rights reserved.
 //
 
+import FirebaseAuth
 import Foundation
 
 struct AuthenticationReducer: Reducer {
@@ -26,5 +27,13 @@ struct AuthenticationReducer: Reducer {
             }
         }
         return LoggedInState.notLoggedIn(verificationId: nil)
+    }
+
+    func initialAuthenticationState() -> LoggedInState {
+        if Helper.shared.isLoggedIn {
+            return .loggedIn(user: Auth.auth().currentUser)
+        } else {
+            return .notLoggedIn(verificationId: nil)
+        }
     }
 }

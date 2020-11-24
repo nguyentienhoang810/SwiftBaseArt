@@ -6,14 +6,21 @@
 //  Copyright © 2020 MacBook. All rights reserved.
 //
 
+import Firebase
 import IQKeyboardManagerSwift
 import UIKit
-import Firebase
+
+let kScreen = UIScreen.main
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    static var shared = UIApplication.shared.delegate as? AppDelegate
+
+    var window: UIWindow?
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow(frame: kScreen.bounds)
         configThirdPaties()
         return true
     }
@@ -39,6 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.keyboardDistanceFromTextField = 40
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         FirebaseApp.configure()
-        Auth.auth().languageCode = "en";
+        Auth.auth().languageCode = "vi"
     }
 }

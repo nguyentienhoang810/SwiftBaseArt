@@ -55,7 +55,6 @@ protocol Store: ObservableObject {
 
     init(reducer: Reducer, state: S, middleware: Middleware)
 
-    @discardableResult
     func dispatch(action: Action) -> Any
     func getState() -> S?
 }
@@ -87,5 +86,23 @@ typealias GetState = () -> ReduxState?
 typealias DispatchFunction = (Action) -> Any
 
 struct StoreGroup {
+    static let authenticationStore = AuthenticationStore(reducer: AuthenticationReducer(), state: AuthenticationReducer().initialAuthenticationState(), middleware: ThunkMiddleware())
     static let studentStore = StudentStore(reducer: StudentReducer(), state: StudentState(listClass: []), middleware: StudentMiddleware())
+}
+
+struct UserDefaultKey {
+    static let loggedInKey = "loggedInKey"
+}
+
+class Helper {
+    static let shared = Helper()
+
+    var isLoggedIn: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: UserDefaultKey.loggedInKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultKey.loggedInKey)
+        }
+    }
 }

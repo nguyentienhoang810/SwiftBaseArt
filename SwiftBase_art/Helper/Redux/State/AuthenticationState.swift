@@ -13,5 +13,5 @@ enum LoggedInState: ReduxState {
     case beginLogin
     case loginFailed(error: Error)
     case notLoggedIn(verificationId: String?)
-    case loggedIn(user: FirebaseAuth.User)
+    case loggedIn(user: FirebaseAuth.User?)
 }

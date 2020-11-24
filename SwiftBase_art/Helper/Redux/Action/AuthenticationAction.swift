@@ -48,6 +48,7 @@ struct AuthenticationActionCreator {
             case let .notLoggedIn(verificationId):
                 if let verificationId = verificationId {
                     let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationId, verificationCode: smsCode)
+                    _ = dispatch(AuthenticationAction.beginLogin)
                     Auth.auth().signIn(with: credential) { authResult, error in
                         if let error = error {
                             _ = dispatch(AuthenticationAction.loginFailed(error: error))

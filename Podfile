@@ -11,5 +11,6 @@ target 'SwiftBase_art' do
     pod 'Firebase/Auth'
     pod 'Firebase/Firestore'
     pod 'FirebaseFirestoreSwift'
+    pod 'SVProgressHUD'
 
 end
