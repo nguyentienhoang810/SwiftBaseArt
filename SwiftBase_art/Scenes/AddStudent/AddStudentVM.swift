@@ -23,7 +23,7 @@ class AddStudentVM: ViewModel {
     }
 
     func addStudent(_ student: Student, toClass aClass: Class) {
-        StoreGroup.studentStore.dispatch(action: StudentAction.addStudent(student, aClass))
+        _ = StoreGroup.studentStore.dispatch(action: StudentAction.addStudent(student, aClass))
     }
 }
 

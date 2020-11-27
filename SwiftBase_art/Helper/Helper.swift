@@ -106,3 +106,50 @@ class Helper {
         }
     }
 }
+
+protocol UnknownCase: RawRepresentable, CaseIterable where RawValue: Equatable & Codable {
+    static var unknownCase: Self { get }
+}
+
+extension UnknownCase {
+    init(rawValue: RawValue) {
+        let value = Self.allCases.first { $0.rawValue == rawValue }
+        self = value ?? Self.unknownCase
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let rawValue = try container.decode(RawValue.self)
+        let value = Self(rawValue: rawValue)
+        self = value ?? Self.unknownCase
+    }
+}
+
+precedencegroup SlashOperatorPrecedence {
+    lowerThan: MultiplicationPrecedence
+    higherThan: AdditionPrecedence
+    associativity: left
+    assignment: false
+}
+
+infix operator /: SlashOperatorPrecedence
+
+func / (lhs: String, rhs: String) -> String {
+    return lhs + "/" + rhs
+}
+
+extension Encodable {
+    var dictionary: [String: Any] {
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        guard let data = try? encoder.encode(self) else { return [:] }
+        return (try? JSONSerialization.jsonObject(with: data, options: .allowFragments)).flatMap { $0 as? [String: Any] } ?? [:]
+    }
+
+    var json: String {
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        guard let data = try? encoder.encode(self) else { return "" }
+        return String(data: data, encoding: .utf8) ?? ""
+    }
+}

@@ -6,11 +6,11 @@ target 'SwiftBase_art' do
   use_frameworks!
 
   # Pods for SwiftBase_art
-    pod 'SnapKit', '~> 5.0.0'
     pod 'IQKeyboardManagerSwift'
     pod 'Firebase/Auth'
     pod 'Firebase/Firestore'
     pod 'FirebaseFirestoreSwift'
     pod 'SVProgressHUD'
+    pod 'Alamofire', '~> 5.2'
 
 end
