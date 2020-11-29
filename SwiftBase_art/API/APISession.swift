@@ -22,7 +22,6 @@ struct APISession: APIService {
         let decoder = decoder ?? self.decoder
         return URLSession.shared
             .dataTaskPublisher(for: builder.urlRequest)
-            .receive(on: DispatchQueue.main)
             .mapError { _ in .unknown(apiMessageError) }
             .flatMap { data, response -> AnyPublisher<T, APIError> in
                 if let response = response as? HTTPURLResponse {
@@ -52,7 +51,6 @@ struct MyAPISession: APIService {
         let decoder = decoder ?? self.decoder
         return URLSession.shared
             .dataTaskPublisher(for: builder.urlRequest)
-            .receive(on: DispatchQueue.main)
             .mapError { _ in .unknown(apiMessageError) }
             .flatMap { data, response -> AnyPublisher<T, APIError> in
                 if let response = response as? HTTPURLResponse {

@@ -41,16 +41,16 @@ class BaseVC: UIViewController {
 
     func startLoading() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            SVProgressHUD.setDefaultMaskType(.clear)
-            SVProgressHUD.show()
+            if !SVProgressHUD.isVisible() {
+                SVProgressHUD.setDefaultMaskType(.clear)
+                SVProgressHUD.show()
+            }
         }
     }
 
     func stopLoading() {
-        if SVProgressHUD.isVisible() {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                SVProgressHUD.dismiss()
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            SVProgressHUD.dismiss()
         }
     }
 }

@@ -87,7 +87,6 @@ typealias DispatchFunction = (Action) -> Any
 
 struct StoreGroup {
     static let authenticationStore = AuthenticationStore(reducer: AuthenticationReducer(), state: AuthenticationReducer().initialAuthenticationState(), middleware: ThunkMiddleware())
-    static let studentStore = StudentStore(reducer: StudentReducer(), state: StudentState(listClass: []), middleware: StudentMiddleware())
 }
 
 struct UserDefaultKey {

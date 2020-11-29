@@ -23,7 +23,9 @@ extension RequestBuilder {
         request.addValue("application/json;charset=utf-8", forHTTPHeaderField: "Content-Type")
         do {
             try request = URLEncoding().encode(request, with: urlParameters)
-            try request = JSONEncoding().encode(request, with: bodyParameters)
+            if method != .get {
+                try request = JSONEncoding().encode(request, with: bodyParameters)
+            }
         } catch {
             print("Encoding parameter fail: \(error.localizedDescription)")
         }

@@ -13,6 +13,18 @@ struct MovieListModel: Codable {
     var page: Int?
     var totalPages: Int?
     var results: [MovieModel]?
+
+    func getNextPage() -> Int {
+        return (page ?? 0) + 1
+    }
+
+    func getPage() -> Int {
+        return page ?? 1
+    }
+
+    func getTotalPages() -> Int {
+        return totalPages ?? 1
+    }
 }
 
 struct MovieModel: Codable {

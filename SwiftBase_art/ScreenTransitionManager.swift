@@ -9,12 +9,12 @@
 import Foundation
 
 struct ScreenTransitionManager {
-    static func transitToHome() {
+    static func transitToMovieList() {
         guard let window = SceneDelegate.shared?.window else {
             return
         }
         let assembler = AppAssembler()
-        let appVM: AppVM = assembler.initVM(window: window)
+        let appVM = assembler.initVM(window: window)
         appVM.start()
     }
 }

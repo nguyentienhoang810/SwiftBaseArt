@@ -12,5 +12,6 @@ target 'SwiftBase_art' do
     pod 'FirebaseFirestoreSwift'
     pod 'SVProgressHUD'
     pod 'Alamofire', '~> 5.2'
+    pod 'Kingfisher', '~> 5.15'
 
 end

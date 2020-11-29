@@ -18,5 +18,7 @@ struct MovieListNavi: Coordinator {
 
     func start() {
         let vc = MovieListAssembler().initVC(coordinator: self)
+        vc.title = "Movie List"
+        navigator?.pushViewController(vc, animated: false)
     }
 }
