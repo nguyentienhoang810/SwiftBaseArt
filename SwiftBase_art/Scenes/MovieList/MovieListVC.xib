@@ -9,31 +9,31 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="SwiftBase_art" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MovieListVC" customModule="SwiftBase_art" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="v5l-b8-e1N" id="pgl-a3-fh5"/>
-                <outlet property="view" destination="iN0-l3-epB" id="IIl-n9-9pP"/>
+                <outlet property="tableView" destination="qxB-j9-3J8" id="3RI-C6-6Ug"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v5l-b8-e1N">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qxB-j9-3J8" customClass="PullTableView" customModule="SwiftBase_art" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="v5l-b8-e1N" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="2Yj-Fy-I2N"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="v5l-b8-e1N" secondAttribute="trailing" id="688-N9-i7D"/>
-                <constraint firstItem="v5l-b8-e1N" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="9ik-GQ-aYL"/>
-                <constraint firstAttribute="bottom" secondItem="v5l-b8-e1N" secondAttribute="bottom" id="Fd5-tL-GCs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qxB-j9-3J8" secondAttribute="trailing" id="62d-3K-J8L"/>
+                <constraint firstItem="qxB-j9-3J8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EhX-aB-7H5"/>
+                <constraint firstItem="qxB-j9-3J8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aXB-HT-pCs"/>
+                <constraint firstAttribute="bottom" secondItem="qxB-j9-3J8" secondAttribute="bottom" id="pVe-gk-lPO"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="82"/>
+            <point key="canvasLocation" x="139" y="145"/>
         </view>
     </objects>
     <resources>

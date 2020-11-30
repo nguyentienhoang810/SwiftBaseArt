@@ -17,15 +17,15 @@ struct AppNavi: Coordinator {
 
     func start() {
         if Helper.shared.isLoggedIn {
-            goToHome()
+            goToMovieList()
         } else {
             goToLogin()
         }
     }
 
-    func goToHome() {
-        let homeNavi = HomeNavi(navigator: navigator)
-        homeNavi.start()
+    func goToMovieList() {
+        let movieListNavi = MovieListNavi(navigator: navigator)
+        movieListNavi.start()
     }
 
     func goToLogin() {

@@ -21,8 +21,8 @@ class AppVM: ViewModel {
 extension AppVM {
     // MARK: - Handle navigator
 
-    func goToHome() {
-        navi.goToHome()
+    func goToMovieList() {
+        navi.goToMovieList()
     }
 
     func goToLogin() {

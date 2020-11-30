@@ -54,7 +54,7 @@ class LoginVC: BaseVC {
             case .loggedIn:
                 self.stopLoading()
                 Helper.shared.isLoggedIn = true
-                ScreenTransitionManager.transitToHome()
+                ScreenTransitionManager.transitToMovieList()
             }
         }
         .store(in: &cancellables)
