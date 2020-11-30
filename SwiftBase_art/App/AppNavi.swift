@@ -10,26 +10,26 @@ import UIKit
 
 struct AppNavi: Coordinator {
     weak var navigator: UINavigationController?
-    
+
     init(navigator: UINavigationController?) {
         self.navigator = navigator
     }
-    
+
     func start() {
-        /*
-         xử lý điều hướng
-         ví dụ:
-         - Chưa login -> qua login
-         - Đã login -> qua home
-         */
-        goToHome()
+        if Helper.shared.isLoggedIn {
+            goToHome()
+        } else {
+            goToLogin()
+        }
     }
-    
+
     func goToHome() {
         let homeNavi = HomeNavi(navigator: navigator)
         homeNavi.start()
     }
-    
+
     func goToLogin() {
+        let loginNavi = LoginNavi(navigator: navigator)
+        loginNavi.start()
     }
 }
