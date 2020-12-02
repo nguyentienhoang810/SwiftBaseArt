@@ -12,19 +12,19 @@ struct AppAssembler: Assembler {
     typealias VC = UINavigationController
     typealias VM = AppVM
     typealias Navi = AppNavi
-    
+
     func initVM(window: UIWindow) -> AppVM {
-        let vc = UINavigationController()
+        let vc = BaseNC()
         window.rootViewController = vc
         window.makeKeyAndVisible()
         let navi = AppNavi(navigator: vc)
         return initVM(coordinator: navi)
     }
-    
+
     func initVC(coordinator: AppNavi) -> UINavigationController {
         fatalError("Can't init AppVC")
     }
-    
+
     func initVM(coordinator: AppNavi) -> AppVM {
         return AppVM(coordinator: coordinator)
     }

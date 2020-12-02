@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 class AppVM: ViewModel {
+    typealias VC = UIViewController
     typealias Navi = AppNavi
 
     var navi: AppNavi
+    var vc: UIViewController?
 
     required init(coordinator: AppNavi) {
         navi = coordinator
@@ -21,8 +24,8 @@ class AppVM: ViewModel {
 extension AppVM {
     // MARK: - Handle navigator
 
-    func goToMovieList() {
-        navi.goToMovieList()
+    func goToHomeTabbar() {
+        navi.goToHomeTabbar()
     }
 
     func goToLogin() {

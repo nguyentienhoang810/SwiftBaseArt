@@ -6,7 +6,6 @@
 //  Copyright © 2020 MacBook. All rights reserved.
 //
 
-import Combine
 import UIKit
 
 class LoginVC: BaseVC {
@@ -15,12 +14,10 @@ class LoginVC: BaseVC {
 
     var vm: LoginVM!
 
-    private var cancellables = Set<AnyCancellable>()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupData()
+        vm.observerLoginState()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,44 +34,27 @@ class LoginVC: BaseVC {
         loginButton.setTitleColor(.white, for: .normal)
     }
 
-    private func setupData() {
-        vm.getLoginState().sink { [weak self] state in
-            guard let self = self else { return }
-            switch state {
-            case .beginLogin:
-                self.startLoading()
-            case let .loginFailed(error):
-                self.stopLoading()
-                Alert.present(message: error.localizedDescription, actions: .ok(handler: nil), from: self)
-            case let .notLoggedIn(verificationId):
-                self.stopLoading()
-                if verificationId != nil {
-                    self.showVerifiSmsCodeForm()
-                }
-            case .loggedIn:
-                self.stopLoading()
-                Helper.shared.isLoggedIn = true
-                ScreenTransitionManager.transitToMovieList()
-            }
-        }
-        .store(in: &cancellables)
-    }
+    // MARK: - Public methods
 
-    private func showVerifiSmsCodeForm() {
-        let alertVC = UIAlertController(title: "SMS Code", message: "Enter sms code", preferredStyle: .alert)
-        var codeTextField: UITextField?
-        alertVC.addTextField { textField in
-            textField.placeholder = "SMS code"
-            codeTextField = textField
-        }
-        let action = UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-            guard let self = self else { return }
-            if let code = codeTextField?.text, !code.isEmpty {
-                self.vm.login(smsCode: code)
+    func handleLoginState(_ state: LoggedInState) {
+        switch state {
+        case .beginLogin:
+            startLoading()
+        case let .loginFailed(error):
+            stopLoading()
+            Alert.present(message: error.localizedDescription, actions: .ok(handler: nil), from: self)
+        case let .notLoggedIn(verificationId):
+            stopLoading()
+            if verificationId != nil {
+                vm.showVerifySmsCodeForm()
             }
+        case .loggedIn:
+            stopLoading()
+            Helper.shared.isLoggedIn = true
+            ScreenTransitionManager.switchScreenFollowLoginState()
+        default:
+            break
         }
-        alertVC.addAction(action)
-        present(alertVC, animated: true, completion: nil)
     }
 
     // MARK: - IBAction

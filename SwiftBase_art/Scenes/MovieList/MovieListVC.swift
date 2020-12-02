@@ -6,7 +6,6 @@
 //  Copyright © 2020 MacBook. All rights reserved.
 //
 
-import Combine
 import UIKit
 
 class MovieListVC: BaseVC {
@@ -18,9 +17,7 @@ class MovieListVC: BaseVC {
 
     typealias GetListMoviePopularParam = MovieEndpoint.GetListMoviePopularParam
 
-    private lazy var getListMoviePopular = CurrentValueSubject<GetListMoviePopularParam, Never>(getListMoviePopularParam)
     private var movies: [MovieModel] = []
-    private var cancellables = Set<AnyCancellable>()
     private var isLoading = false
     private var movieList = MovieListModel()
 
@@ -35,7 +32,7 @@ class MovieListVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupData()
+        fetchListMoviePopular()
     }
 
     // MARK: - Private methods
@@ -44,59 +41,42 @@ class MovieListVC: BaseVC {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(aClass: MovieListCell.self)
+        tableView.setupRefresh(action: nil)
+        tableView.startRefresh = { [weak self] _ in
+            guard let self = self else { return }
+            self.movieList.page = 1
+            self.fetchListMoviePopular()
+        }
     }
 
-    private func setupData() {
-        let getListMoviePopular = self.getListMoviePopular
-            .filter { [weak self] _ in
-                guard let self = self else { return false }
-                if !self.isLoading {
-                    self.isLoading = true
-                    return true
-                }
-                return false
-            }
-            .handleEvents(receiveOutput: { [weak self] param in
-                guard let self = self else { return }
-                if param.page == 1 {
-                    self.startLoading()
-                }
-            })
-            .eraseToAnyPublisher()
-
-        let input = MovieListVM.Input(getListMoviePopular: getListMoviePopular)
-        let output = vm.transform(input: input)
-
-        output.getListMoviePopularSuccess.sink(receiveCompletion: { [weak self] result in
-            guard let self = self else { return }
-            self.stopLoading()
-            self.tableView.endLoadMore()
-            self.tableView.endRefreshing()
-            self.handleCallAPICompletion(result)
-        }, receiveValue: { [weak self] movieList in
-            guard let self = self else { return }
-            self.handleGetListMoviePopularSuccess(movieList: movieList)
-        })
-            .store(in: &cancellables)
+    private func fetchListMoviePopular() {
+        guard !isLoading else { return }
+        if getListMoviePopularParam.page == 1 {
+            startLoading()
+        }
+        isLoading = true
+        vm.fetchListMoviePopular(param: getListMoviePopularParam)
     }
 
-    private func handleGetListMoviePopularSuccess(movieList: MovieListModel) {
+    // MARK: - Public methods
+
+    func handleGetListMoviePopularSuccess(result: APIResult<MovieListModel>) {
         stopLoading()
         tableView.endLoadMore()
         tableView.endRefreshing()
-        self.movieList = movieList
-        movies.append(contentsOf: movieList.results ?? [])
-        tableView.reloadData()
-        isLoading = false
-    }
-
-    private func handleCallAPICompletion(_ result: Subscribers.Completion<APIError>) {
         switch result {
+        case let .success(movieList):
+            self.movieList = movieList
+            if movieList.page == 1 {
+                movies = movieList.results ?? []
+            } else {
+                movies.append(contentsOf: movieList.results ?? [])
+            }
+            tableView.reloadData()
         case let .failure(error):
-            Alert.present(message: error.localizedDescription, actions: [.ok(handler: nil)], from: self)
-        default:
-            break
+            Alert.present(message: error.localizedDescription, actions: .ok(handler: nil), from: self)
         }
+        isLoading = false
     }
 }
 
@@ -126,7 +106,7 @@ extension MovieListVC: UITableViewDataSource, UITableViewDelegate {
         if scrollView.isNearBottomEdge() && !isEndLoadmore {
             tableView.startLoadMore()
             movieList.page = movieList.getNextPage()
-            getListMoviePopular.send(getListMoviePopularParam)
+            fetchListMoviePopular()
         }
     }
 }

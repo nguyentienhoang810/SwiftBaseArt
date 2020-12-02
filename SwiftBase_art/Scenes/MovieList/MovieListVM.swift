@@ -10,35 +10,39 @@ import Combine
 import Foundation
 
 class MovieListVM: ViewModel, MovieService {
-    var apiSession: APIService
-
+    typealias VC = MovieListVC
     typealias Navi = MovieListNavi
 
     var navi: MovieListNavi
+    var apiSession: APIService
+    weak var vc: MovieListVC?
+
+    private var cancellables = Set<AnyCancellable>()
 
     required init(coordinator: MovieListNavi) {
         navi = coordinator
         apiSession = APISession()
     }
+}
 
-    struct Input {
-        let getListMoviePopular: AnyPublisher<MovieEndpoint.GetListMoviePopularParam, Never>
-    }
+extension MovieListVM {
+    // MARK: - handle call API
 
-    struct Output {
-        let getListMoviePopularSuccess: AnyPublisher<MovieListModel, APIError>
-    }
-
-    func transform(input: Input) -> Output {
-        let getListMoviePopularSuccess = input.getListMoviePopular
-            .setFailureType(to: APIError.self)
-            .flatMap { [weak self] param -> AnyPublisher<MovieListModel, APIError> in
-                guard let self = self else { return Empty<MovieListModel, APIError>(completeImmediately: false).eraseToAnyPublisher() }
-                return self.getListMoviePopular(param: param).eraseToAnyPublisher()
-            }
-            .retry(10)
+    func fetchListMoviePopular(param: MovieEndpoint.GetListMoviePopularParam) {
+        getListMoviePopular(param: param)
             .receive(on: DispatchQueue.main)
-            .eraseToAnyPublisher()
-        return Output(getListMoviePopularSuccess: getListMoviePopularSuccess)
+            .sink { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case let .failure(error):
+                    self.vc?.handleGetListMoviePopularSuccess(result: APIResult<MovieListModel>.failure(error))
+                default:
+                    break
+                }
+            } receiveValue: { [weak self] movieList in
+                guard let self = self else { return }
+                self.vc?.handleGetListMoviePopularSuccess(result: APIResult<MovieListModel>.success(movieList))
+            }
+            .store(in: &cancellables)
     }
 }

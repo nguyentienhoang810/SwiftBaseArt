@@ -73,4 +73,5 @@ enum AuthenticationAction: Action {
     case loginFailed(error: Error)
     case verifiedPhone(verificationId: String)
     case verifiedSmsCode(user: FirebaseAuth.User)
+    case logout
 }

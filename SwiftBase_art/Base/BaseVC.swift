@@ -12,6 +12,11 @@ import UIKit
 class BaseVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
     }
 
     override func viewWillDisappear(_ animated: Bool) {

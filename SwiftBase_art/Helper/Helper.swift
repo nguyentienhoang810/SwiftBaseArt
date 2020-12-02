@@ -19,9 +19,11 @@ protocol Coordinator {
 }
 
 protocol ViewModel: ObservableObject {
+    associatedtype VC: UIViewController
     associatedtype Navi: Coordinator
 
     var navi: Navi { get set }
+    var vc: VC? { get set }
 
     init(coordinator: Navi)
 
@@ -151,4 +153,8 @@ extension Encodable {
         guard let data = try? encoder.encode(self) else { return "" }
         return String(data: data, encoding: .utf8) ?? ""
     }
+}
+
+struct Constants {
+    static let apiRetryLimit = 10
 }

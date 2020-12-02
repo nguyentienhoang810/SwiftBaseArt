@@ -15,7 +15,9 @@ struct LoginAssembler: Assembler {
 
     func initVC(coordinator: LoginNavi) -> LoginVC {
         let vc = LoginVC()
-        vc.vm = LoginVM(coordinator: coordinator)
+        let vm = LoginVM(coordinator: coordinator)
+        vc.vm = vm
+        vm.vc = vc
         return vc
     }
 

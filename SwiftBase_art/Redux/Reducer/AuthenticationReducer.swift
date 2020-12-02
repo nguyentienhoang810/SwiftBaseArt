@@ -24,6 +24,13 @@ struct AuthenticationReducer: Reducer {
                 return LoggedInState.notLoggedIn(verificationId: verificationId)
             case let .verifiedSmsCode(user):
                 return LoggedInState.loggedIn(user: user)
+            case .logout:
+                do {
+                    try Auth.auth().signOut()
+                    return LoggedInState.loggedOut
+                } catch {
+                    return LoggedInState.loginFailed(error: error)
+                }
             }
         }
         return LoggedInState.notLoggedIn(verificationId: nil)

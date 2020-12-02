@@ -11,7 +11,7 @@ import Foundation
 
 enum MovieEndpoint {
     static let movieAPIEndpoint = "https://api.themoviedb.org"
-    static let API_KEY = "c6bcf9b396562b60515b1e6edfebda90"
+    static let apiKey = "c6bcf9b396562b60515b1e6edfebda90"
 
     enum Version: String {
         case v3 = "3"
@@ -29,13 +29,13 @@ extension MovieEndpoint: RequestBuilder {
         switch self {
         case let .listMoviePopular(param):
             let url = URL(string: MovieEndpoint.Version.v3.path / "movie/popular")!
-            let request = createURLRequest(url: url, method: .get, urlParameters: getUrlParameters(param.dictionary), bodyParameters: [:])
+            let request = createURLRequest(url: url, method: .get, parameters: getUrlParameters(param.dictionary))
             return request
         }
     }
 
     private func getUrlParameters(_ param: [String: Any]) -> Parameters {
-        var result: Parameters = ["api_key": MovieEndpoint.API_KEY]
+        var result: Parameters = ["api_key": MovieEndpoint.apiKey]
         for item in param {
             result[item.key] = item.value
         }

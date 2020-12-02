@@ -9,5 +9,12 @@
 import UIKit
 
 class BaseNC: UINavigationController {
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        overrideUserInterfaceStyle = .light
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
+    }
 }

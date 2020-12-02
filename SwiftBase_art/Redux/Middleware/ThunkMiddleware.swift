@@ -26,7 +26,7 @@ extension Store {
     }
 
     func dispatch(_ action: @escaping ActionCreator) {
-        dispatch(action: ActionWrapper(action: action))
+        _ = dispatch(action: ActionWrapper(action: action))
     }
 }
 

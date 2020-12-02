@@ -9,7 +9,7 @@
 import Foundation
 
 struct ScreenTransitionManager {
-    static func transitToMovieList() {
+    static func switchScreenFollowLoginState() {
         guard let window = SceneDelegate.shared?.window else {
             return
         }

@@ -15,7 +15,9 @@ struct MovieListAssembler: Assembler {
 
     func initVC(coordinator: MovieListNavi) -> MovieListVC {
         let vc = MovieListVC()
-        vc.vm = initVM(coordinator: coordinator)
+        let vm = initVM(coordinator: coordinator)
+        vc.vm = vm
+        vm.vc = vc
         return vc
     }
 
