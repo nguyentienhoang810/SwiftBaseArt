@@ -11,29 +11,44 @@ import Kingfisher
 import UIKit
 
 extension UIImageView {
-    func downloadImage(url: URL, size: CGSize?, placeholder: UIImage? = nil, indicator: Bool = false) {
-        var kingFisherOptionInfo: KingfisherOptionsInfo = [
-            .scaleFactor(kScreen.scale),
-            .transition(.fade(1)),
-            .cacheOriginalImage,
-        ]
-        if let size = size {
-            let processor = DownsamplingImageProcessor(size: size)
-            kingFisherOptionInfo.append(.processor(processor))
+    func showImage(from url: URL) {
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() { [weak self] in
+                self?.image = UIImage(data: data)
+            }
         }
-        kf.indicatorType = indicator ? .activity : .none
-        kf.setImage(
-            with: url,
-            placeholder: placeholder,
-            options: kingFisherOptionInfo
-            , completionHandler: {
-                result in
-                switch result {
-                case let .success(value):
-                    print("Task done for: \(value.source.url?.absoluteString ?? "")")
-                case let .failure(error):
-                    print("Job failed: \(error.localizedDescription)")
-                }
-            })
     }
+    
+    private func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+//    func downloadImage(url: URL, size: CGSize?, placeholder: UIImage? = nil, indicator: Bool = false) {
+//        var kingFisherOptionInfo: KingfisherOptionsInfo = [
+//            .scaleFactor(kScreen.scale),
+//            .transition(.fade(1)),
+//            .cacheOriginalImage,
+//        ]
+//        if let size = size {
+//            let processor = DownsamplingImageProcessor(size: size)
+//            kingFisherOptionInfo.append(.processor(processor))
+//        }
+//        kf.indicatorType = indicator ? .activity : .none
+//        kf.setImage(
+//            with: url,
+//            placeholder: placeholder,
+//            options: kingFisherOptionInfo
+//            , completionHandler: {
+//                result in
+//                switch result {
+//                case let .success(value):
+//                    print("Task done for: \(value.source.url?.absoluteString ?? "")")
+//                case let .failure(error):
+//                    print("Job failed: \(error.localizedDescription)")
+//                }
+//            })
+//    }
 }

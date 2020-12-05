@@ -22,7 +22,8 @@ class MovieListCell: UITableViewCell {
         titleLabel.text = movie.title
         overviewLabel.text = movie.overview
         if let posterPath = movie.posterPath, let imageUrl = String.getTMDBMovieImage(path: posterPath) {
-            movieImgView.downloadImage(url: imageUrl, size: nil)
+//            movieImgView.downloadImage(url: imageUrl, size: nil)
+            movieImgView.showImage(from: imageUrl)
         }
     }
 
