@@ -17,10 +17,8 @@ extension UIImageView {
             .transition(.fade(1)),
             .cacheOriginalImage,
         ]
-        if let size = size {
-            let processor = DownsamplingImageProcessor(size: size)
-            kingFisherOptionInfo.append(.processor(processor))
-        }
+        let processor = DownsamplingImageProcessor(size: size ?? CGSize(width: 100, height: 100))
+        kingFisherOptionInfo.append(.processor(processor))
         kf.indicatorType = indicator ? .activity : .none
         kf.setImage(
             with: url,
